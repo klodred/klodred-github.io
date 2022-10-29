@@ -1,15 +1,17 @@
 <template>
-  <form class="col-7"  method="post" @submit="login">
+  <form class="col-7" method="post" @submit="login">
     <div class="wrap-input validate-input">
       <input class="input-100" name="email" v-model="email" type="text" placeholder="Email">
+      <div class="errors">{{ errors.email }}</div>
     </div>
 
     <div class="wrap-input validate-input">
       <input class="input-100" name="password" v-model="password" type="password" placeholder="Password">
+      <div class="errors">{{ errors.password }}</div>
     </div>
 
     <div class="container-login100-btn">
-      <button class="submit btn login-btn" v-on:click="login">Войти</button>
+      <button class="btn login-btn" type="submit">Войти</button>
     </div>
   </form>
 </template>
@@ -30,6 +32,7 @@ export default {
   },
   methods: {
     login(event) {
+      alert("click")
       this.validate()
       event.preventDefault()
     },
@@ -74,7 +77,7 @@ export default {
   height: 80px;
   width: 100%;
   border-radius: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 30px;
   border: 1px solid #e6e6e6;
 }
 
@@ -96,6 +99,10 @@ input {
   outline: none;
   border: none;
   overflow: visible;
+}
+
+.errors {
+  color: red;
 }
 
 </style>
